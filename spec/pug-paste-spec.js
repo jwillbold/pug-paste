@@ -33,9 +33,9 @@ html(lang='en')\n\
 \t\t#content\n\
 \t\t\th1.title Hello World!";
 
-const commandEnableClipbaordTransform = "pug-paste:enable-clipbaord-transform";
-const commandDisableClipbaordTransform = "pug-paste:disable-clipbaord-transform";
-const commandToggleClipbaordTransform = "pug-paste:toggle-clipbaord-transform";
+const commandEnableclipboardTransform = "pug-paste:enable-clipboard-transform";
+const commandDisableclipboardTransform = "pug-paste:disable-clipboard-transform";
+const commandToggleclipboardTransform = "pug-paste:toggle-clipboard-transform";
 
 describe('PugPaste', () => {
   let workspaceElement, activationPromise;
@@ -76,11 +76,11 @@ describe('PugPaste', () => {
     };
   };
 
-  describe('pug-paste:enable/disable-clipbaord-transform',
-            testHelper(commandEnableClipbaordTransform,
-                       commandDisableClipbaordTransform));
+  describe('pug-paste:enable/disable-clipboard-transform',
+            testHelper(commandEnableclipboardTransform,
+                       commandDisableclipboardTransform));
 
-  describe('pug-paste:toggle-clipbaord-transform',
-            testHelper(commandToggleClipbaordTransform,
-                       commandToggleClipbaordTransform));
+  describe('pug-paste:toggle-clipboard-transform',
+            testHelper(commandToggleclipboardTransform,
+                       commandToggleclipboardTransform));
 });

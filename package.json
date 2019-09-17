@@ -7,11 +7,11 @@
   },
   "main": "./lib/pug-paste",
   "version": "1.0.0",
-  "description": "Auto-transforms HTML into PUG when pasting to a pug file",
+  "description": "Auto-transforms HTML into PUG when pasting to a PUG-file",
   "keywords": [
     "html",
     "pug",
-    "clipbaord"
+    "clipboard"
   ],
   "repository": "https://github.com/jwillbold/pug-paste",
   "license": "MIT",
