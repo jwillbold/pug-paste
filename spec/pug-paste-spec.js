@@ -7,7 +7,11 @@ import PugPaste from '../lib/pug-paste';
 // To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
 // or `fdescribe`). Remove the `f` to unfocus the block.
 
-const htmlTestText = '\
+const regularText = '\
+Some regular text\n\
+With multiple lines\n';
+
+const htmlText = '\
 <!doctype html>\n\
 <html lang="en">\n\
   <head>\n\
@@ -20,7 +24,7 @@ const htmlTestText = '\
   </body>\n\
 </html>';
 
-const pugTestText = "\
+const pugText = "\
 doctype html\n\
 html(lang='en')\n\
 \thead\n\
@@ -43,30 +47,32 @@ describe('PugPaste', () => {
 
   let testHelper = (enableCommand, disableCommand) => {
     return () => {
-      beforeEach(() => {
-        atom.commands.dispatch(workspaceElement, enableCommand);
-        atom.clipboard.write(htmlTestText);
-      });
 
-      afterEach(() => {
-        atom.commands.dispatch(workspaceElement, disableCommand);
-        expect(atom.clipboard.read()).toBe(htmlTestText);
-      });
-
-      let testHelper = (fileName, expectedOutput) => {
+      let testHelper = (fileName, input, expectedOutput) => {
         return () => {
+          atom.commands.dispatch(workspaceElement, enableCommand);
+
+          atom.clipboard.write(input);
+
           waitsForPromise(() => atom.workspace.open(fileName));
 
           runs(() => {
             expect(atom.workspace.getActiveTextEditor().getPath()).toContain(fileName);
             expect(atom.clipboard.read()).toBe(expectedOutput);
+
+            atom.commands.dispatch(workspaceElement, disableCommand);
+
+            expect(atom.clipboard.read()).toBe(input);
           });
         }
       };
 
-      it("paste html to test.html", testHelper('test.html', htmlTestText));
-      it("paste html to test.pug", testHelper('test.pug', pugTestText));
-      it("paste html to test.txt", testHelper('test.txt', htmlTestText));
+      it("paste html to test.html", testHelper('test.html', htmlText, htmlText));
+      it("paste html to test.pug", testHelper('test.pug', htmlText, pugText));
+      it("paste html to test.txt", testHelper('test.txt', htmlText, htmlText));
+
+      it("paste text to test.pug", testHelper('test.pug', regularText, regularText));
+      it("paste pug to test.pug", testHelper('test.pug', pugText, pugText));
     };
   };
 

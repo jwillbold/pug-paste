@@ -4,4 +4,4 @@ node_modules
 
 playground
 
-*.hidden
+*.hidden*

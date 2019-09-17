@@ -7,7 +7,7 @@
   },
   "main": "./lib/pug-paste",
   "version": "1.0.0",
-  "description": "An Atom IDE plugin, that auto-transforms HTML code in the clipboard to PUG.",
+  "description": "Auto-transforms HTML into PUG when pasting to a pug file",
   "keywords": [
     "html",
     "pug",
