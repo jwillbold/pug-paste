@@ -1,0 +1,24 @@
+{
+  "name": "pug-paste",
+  "author": {
+    "name": "Johannes Willbold",
+    "email": "johannes.willbold@gmail.com",
+    "url": "http://jwillbold.com/"
+  },
+  "main": "./lib/pug-paste",
+  "version": "1.0.0",
+  "description": "An Atom IDE plugin, that auto-transforms HTML code in the clipboard to PUG.",
+  "keywords": [
+    "html",
+    "pug",
+    "clipbaord"
+  ],
+  "repository": "https://github.com/jwillbold/pug-paste",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "html2pug": ">=4.0.0"
+  }
+}
