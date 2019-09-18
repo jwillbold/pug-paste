@@ -6,7 +6,7 @@
     "url": "http://jwillbold.com/"
   },
   "main": "./lib/pug-paste",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Auto-transforms HTML into PUG when pasting to a PUG-file",
   "keywords": [
     "html",
