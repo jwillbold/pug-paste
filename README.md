@@ -4,7 +4,7 @@ An Atom IDE plugin that automatically transforms HTML code to PUG code, when pas
 The plugin first checks whether the pasting target is a pug file. Afterwards, it is checked whether the pasted
 text is HTML. If this is the case, the pasted text gets converted.
 
-<head>, <body> and <html> tags are ignored.
+``<head>``, ``<body>`` and ``<html>`` tags are ignored.
 
 The HTML to PUG conversion is done via the node.js package 'html2pug'.
 https://www.npmjs.com/package/html2pug
